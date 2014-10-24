@@ -1,0 +1,4 @@
+include CONTRIBUTORS.txt
+include README.md
+include LICENSE
+recursive-include django_cachedpaginator/templates/django_cachedpaginator *.html

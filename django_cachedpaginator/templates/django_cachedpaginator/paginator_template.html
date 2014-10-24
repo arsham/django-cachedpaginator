@@ -1,0 +1,10 @@
+<div>
+    <span class="result-count">
+        {{ object_list.paginator.num_pages }} Pages
+    </span>
+    <ul>
+        {% for item in paginator_list %}
+            <li class='{{ item.class }}'><a href="?{{ item.link }}">{{ item.verbose_name }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
