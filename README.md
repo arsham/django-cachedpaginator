@@ -73,42 +73,54 @@ If you want to override the template that is used to render the paginator, you h
 You can set any of these in your settings file if you needed to:
 
 PAGINATOR_TOTAL_PAGES
+
     default: 10
 
 PAGINATOR_TEMPLATE
+
     default: 'django_cachedpaginator/paginator_template.html'
 
 PAGINATOR_ID_PREFIX
+
     default: 'paginator_page'
     purpose: element's id prefix in your output
 
 PAGINATOR_FIRST_CLASS
+
     default: 'first'
     purpose: element's class in your output
 
 PAGINATOR_FIRST_VERBOSE
+
     default: 'First'
     purpose: String to show.
 
 PAGINATOR_PREVIOUS_CLASS
+
     default: 'previous'
 
 PAGINATOR_PREVIOUS_VERBOSE
+
     default: 'Previous'
 
 PAGINATOR_NEXT_CLASS
+
     default: 'next'
 
 PAGINATOR_NEXT_VERBOSE
+
     default: 'Next'
 
 PAGINATOR_LAST_CLASS
+
     default: 'last'
 
 PAGINATOR_LAST_VERBOSE
+
     default: 'Last'
 
 PAGINATOR_PAGE_PARAMETER
+
     default: 'page'
     purpose: name of the parameter in your query string
 
