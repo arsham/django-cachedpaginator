@@ -80,6 +80,7 @@ class CachedPaginatorViewMixin:
     A Class Based View Mixin to use cached paginator instead of django's stock one
     """
     paginator_class = Paginator
+    paginate_by = 10
 
     def get_paginator(self, queryset, per_page, orphans=0, allow_empty_first_page=True, **kwargs):
 

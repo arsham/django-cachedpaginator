@@ -6,6 +6,8 @@ TEMPLATE_DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = (
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
 )
@@ -13,6 +15,10 @@ INSTALLED_APPS = (
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+)
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.request",
 )
 
 ROOT_URLCONF = 'django_cachedpaginator.urls'
@@ -39,3 +45,6 @@ TEMPLATE_DIRS = (
 PASSWORD_HASHERS = (
     'django.contrib.auth.hashers.MD5PasswordHasher',
 )
+
+from django.template import add_to_builtins
+add_to_builtins('django_cachedpaginator.templatetags.cached_paginator')

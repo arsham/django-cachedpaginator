@@ -67,6 +67,51 @@ All you need to do is to load the tags and pass your object_list to paginator ta
 If you want to override the template that is used to render the paginator, you have a couple of options:
 * Either create a file in your template folder (the one you've set in your settings file) by this name: django_cachedpaginator/paginator_template.html
 * or set this variable in your settings file: PAGINATOR_TEMPLATE = 'path/to/your/template'
+
+# Settings
+
+You can set any of these in your settings file if you needed to:
+
+PAGINATOR_TOTAL_PAGES
+    default: 10
+
+PAGINATOR_TEMPLATE
+    default: 'django_cachedpaginator/paginator_template.html'
+
+PAGINATOR_ID_PREFIX
+    default: 'paginator_page'
+    purpose: element's id prefix in your output
+
+PAGINATOR_FIRST_CLASS
+    default: 'first'
+    purpose: element's class in your output
+
+PAGINATOR_FIRST_VERBOSE
+    default: 'First'
+    purpose: String to show.
+
+PAGINATOR_PREVIOUS_CLASS
+    default: 'previous'
+
+PAGINATOR_PREVIOUS_VERBOSE
+    default: 'Previous'
+
+PAGINATOR_NEXT_CLASS
+    default: 'next'
+
+PAGINATOR_NEXT_VERBOSE
+    default: 'Next'
+
+PAGINATOR_LAST_CLASS
+    default: 'last'
+
+PAGINATOR_LAST_VERBOSE
+    default: 'Last'
+
+PAGINATOR_PAGE_PARAMETER
+    default: 'page'
+    purpose: name of the parameter in your query string
+
 # Notes
 
 cache_timeout nad count_timeout are measured in seconds and are optional. Defaults are 300 and 600.

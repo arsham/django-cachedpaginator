@@ -1,7 +1,13 @@
+from django.contrib.auth.models import User
 from django.views.generic import ListView
-from django_cachedpaginator import CachedPaginatorMixin
+from django_cachedpaginator.utils import CachedPaginatorViewMixin
 
 
-class TestView(CachedPaginatorMixin, ListView):
+class TestView(CachedPaginatorViewMixin, ListView):
 
-    pass
+    model = User
+    template_name = 'test.html'
+    paginate_by = 3
+
+    def get_cache_key(self):
+        return 'test'

@@ -18,7 +18,7 @@ PAGINATOR_LAST_VERBOSE = getattr(settings, 'PAGINATOR_LAST_VERBOSE', 'Last')
 PAGINATOR_PAGE_PARAMETER = getattr(settings, 'PAGINATOR_PAGE_PARAMETER', 'page')
 
 
-@register.inclusion_tag(PAGINATOR_TEMPLATE, takes_context=True)
+@register.inclusion_tag(PAGINATOR_TEMPLATE, takes_context=True, name='paginate')
 def paginate(context, object_list):
     """
     Creates a paginator element and draws it based on the template
