@@ -7,7 +7,7 @@ class TestView(CachedPaginatorViewMixin, ListView):
 
     model = User
     template_name = 'test.html'
-    paginate_by = 3
+    paginate_by = 10
 
     def get_cache_key(self):
         return 'test'
