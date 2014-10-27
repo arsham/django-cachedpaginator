@@ -1,7 +1,6 @@
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.test.client import Client
-from django.test.client import RequestFactory
 from django_cachedpaginator.utils import Paginator, PageNotAnInteger, EmptyPage, Page
 
 

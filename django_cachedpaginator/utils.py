@@ -1,4 +1,4 @@
-
+import abc
 from django.core.cache import cache
 from django.core.paginator import Paginator as DjangoPaginator, Page, EmptyPage, PageNotAnInteger
 
@@ -74,7 +74,7 @@ class Paginator(DjangoPaginator):
         return self._cached_num_objects
 
 
-class CachedPaginatorViewMixin:
+class CachedPaginatorViewMixin(metaclass=abc.ABCMeta):
 
     """
     A Class Based View Mixin to use cached paginator instead of django's stock one
@@ -82,9 +82,12 @@ class CachedPaginatorViewMixin:
     paginator_class = Paginator
     paginate_by = 10
 
+    @abc.abstractmethod
+    def get_cache_key(self):
+        pass
+
     def get_paginator(self, queryset, per_page, orphans=0, allow_empty_first_page=True, **kwargs):
 
-        assert hasattr(self, "get_cache_key"), 'You should implement get_cache_key in your view'
         cache_timeout = getattr(self, 'cache_timeout', 60)
         count_timeout = getattr(self, 'count_timeout', 3600)
 
