@@ -11,6 +11,12 @@ This application was inspired by https://djangosnippets.org/snippets/1173/
 
 * 0.0.4: Adds support for jinja. You should call the paginate function instad of using it as a tag
 
+Build Status
+============
+
+.. image:: https://travis-ci.org/arsham/django-cachedpaginator.svg?branch=master
+    :target: https://travis-ci.org/arsham/django-cachedpaginator
+
 ## Usage
 
 ### View
