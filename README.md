@@ -14,8 +14,7 @@ This application was inspired by https://djangosnippets.org/snippets/1173/
 Build Status
 ============
 
-.. image:: https://travis-ci.org/arsham/django-cachedpaginator.svg?branch=master
-    :target: https://travis-ci.org/arsham/django-cachedpaginator
+[![Build Status](https://travis-ci.org/arsham/django-cachedpaginator.svg?branch=master)](https://travis-ci.org/arsham/django-cachedpaginator)
 
 ## Usage
 
