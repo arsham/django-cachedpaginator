@@ -7,6 +7,10 @@ A paginator that caches pages and result count. Very handy when you need to pagi
 
 This application was inspired by https://djangosnippets.org/snippets/1173/
 
+## Changelog
+
+* 0.0.4: Adds support for jinja. You should call the paginate function instad of using it as a tag
+
 ## Usage
 
 ### View
@@ -56,12 +60,22 @@ And it will automatically caches the pagination.
 IMPORTANT: Make sure you add 'django_cachedpaginator' to your INSTALLLED_APPS settings, otherwide django cannot load the tag
 All you need to do is to load the tags and pass your object_list to paginator tag like so:
 
+In django templates:
+
 ```twig
 {% load cached_paginator %}
 
 ...
 
 {% paginate object_list %}
+```
+
+In jinja2 templates:
+
+```twig
+...
+
+{{ paginate(object_list) }}
 ```
 
 If you want to override the template that is used to render the paginator, you have a couple of options:
