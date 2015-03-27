@@ -6,7 +6,7 @@ __author__ = "Arsham Shirvani <arshamshirvani@gmail.com>"
 register = template.Library()
 
 
-@register.inclusion_tag(PAGINATOR_TEMPLATE, takes_context=True, name='paginate')
+@register.inclusion_tag(PAGINATOR_TEMPLATE, takes_context=True)
 def paginate(context, object_list):
     """
     Creates a paginator element and draws it based on the template

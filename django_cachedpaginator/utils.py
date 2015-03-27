@@ -1,3 +1,4 @@
+import six
 import abc
 from django.core.cache import cache
 from django.conf import settings
@@ -36,7 +37,7 @@ class Paginator(DjangoPaginator):
 
     def __init__(self, object_list, per_page, cache_key, cache_timeout=300, count_timeout=600, orphans=0, allow_empty_first_page=True):
 
-        super().__init__(object_list, per_page, orphans, allow_empty_first_page)
+        super(Paginator, self).__init__(object_list, per_page, orphans, allow_empty_first_page)
         self.cache_key = cache_key.replace(' ', '_')
         self.cache_timeout = cache_timeout
         self._cached_num_pages = None
@@ -58,7 +59,7 @@ class Paginator(DjangoPaginator):
         if cached_object_list is not None:
             page = Page(cached_object_list, number, self)
         else:
-            page = super().page(number)
+            page = super(Paginator, self).page(number)
             # Since the results are fresh, cache it.
             cache.set(self.build_cache_key(number), page.object_list, self.cache_timeout)
 
@@ -82,14 +83,15 @@ class Paginator(DjangoPaginator):
             key = self.build_cache_key_total('total_number')
             _total = cache.get(key, None)
             if not _total:
-                _total = super().count
+                _total = super(Paginator, self).count
                 cache.set(key, _total, self.count_timeout)
             self._cached_num_objects = _total
 
         return self._cached_num_objects
 
 
-class CachedPaginatorViewMixin(metaclass=abc.ABCMeta):
+@six.add_metaclass(abc.ABCMeta)
+class CachedPaginatorViewMixin(object):
 
     """
     A Class Based View Mixin to use cached paginator instead of django's stock one
